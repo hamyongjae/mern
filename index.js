@@ -4,7 +4,7 @@ const User = require('./models/User');
 
 const auth = require('./routes/auth');
 const users = require('./routes/users'); // 추가
-
+const home = require('./routes/home');
 const keys = require('./config/default');
 
 const cookieSession = require('cookie-session');
