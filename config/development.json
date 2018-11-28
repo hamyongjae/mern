@@ -1,0 +1,12 @@
+{
+    "DB": {
+      "mongoURI": "mongodb://localhost/mern"
+    },
+    "auth": {
+      "google": {
+        "clientID": "51158539313-t9ivo51pp0afaqretfvotrr2k4r1idl3.apps.googleusercontent.com",
+        "clientSecret": "pRJV5cdnC_-9kaQPhRvRbVt6"
+      }
+    },
+    "cookieKey": "jaskdlfjskl;fjskl;fjd"
+  }
