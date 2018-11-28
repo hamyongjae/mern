@@ -23,18 +23,25 @@ passport.use(new GoogleStrategy(
     callbackURL: "/auth/google/callback",
     proxy: true
   },
-  (accessToken, refreshToken, profile, done) => {
-    let user = User.findOne({ googleID: profile.id })
-      .then(existingUser => {
-        if(existingUser) { // User exists
-          done(null, existingUser);
-        } else { // New user
-          new User({ googleID: profile.id })
-            .save()
-            .then(newUser => done(null, newUser))
-            .catch(error => console.error(error.message));
-        }
-      })
-      .catch(error => console.error(error.message));
+  async (accessToken, refreshToken, profile, done) => {
+    const existingUser = await User.findOne({ googleID : profile.id});
+    if(existingUser) done(null, existingUser); // 유저 있음
+    else { // 유저없음
+      const newUser = new User({ googleID: profifle.id }).save();
+      done(null,newUser); 
+    }
+    // let user = User.findOne({ googleID: profile.id })
+    //   .then(existingUser => {
+    //     if(existingUser) { // User exists
+    //       done(null, existingUser);
+    //     } else { // New user
+    //       new User({ googleID: profile.id })
+    //         .save()
+    //         .then(newUser => done(null, newUser))
+    //         .catch(error => console.error(error.message));
+    //     }
+    //   })
+    //   .catch(error => console.error(error.message));
   }
 ));
+

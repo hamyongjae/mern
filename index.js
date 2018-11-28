@@ -27,7 +27,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use('/auth/google', auth);
-app.use('/api/users', users); // 추가
+app.use('/api/users', users); // 추가 // /api/user/current
 app.use(home);
 
 const PORT = process.env.PORT || 5000;
